@@ -4,7 +4,8 @@ import Dashboard from './components/Dashboard.tsx';
 
 function App() {
   return (
-    <Router basename='/fitness_guru'>
+    // <Router basename='/fitness_guru'>
+    <Router>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
