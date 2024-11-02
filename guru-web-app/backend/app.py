@@ -7,7 +7,8 @@ import os
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')  # Change this to a strong secret key
 jwt = JWTManager(app)
-CORS(app)
+# CORS(app)
+CORS(app, resources={r"/api/*": {"origins": ["https://fitness-guru-theta.vercel.app", "http://localhost:3000"]}})
 
 # Register the blueprint with the app
 app.register_blueprint(auth_bp)
