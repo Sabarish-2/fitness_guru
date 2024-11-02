@@ -2,20 +2,23 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
+import { log } from 'console';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const link = import.meta.env.VITE_API_URL;
 
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, { email, password });
-
+      const response = await axios.post(`${link}/api/login`, { email, password });
+      log(link);
+      log("${link}/api/login");
 
       // Assuming a token or success message is returned from the backend
       localStorage.setItem('token', response.data.token);
