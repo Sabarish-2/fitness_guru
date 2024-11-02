@@ -16,8 +16,8 @@ const Login = () => {
 
     try {
       const response = await axios.post(`${link}/api/login`, { email, password });
-      console.log(link);
-      console.log("${link}/api/login");
+      // console.log(link);
+      // console.log("${link}/api/login");
 
       // Assuming a token or success message is returned from the backend
       localStorage.setItem('token', response.data.token);
