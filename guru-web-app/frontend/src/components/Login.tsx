@@ -2,7 +2,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Login.css';
-import { log } from 'console';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -17,8 +16,8 @@ const Login = () => {
 
     try {
       const response = await axios.post(`${link}/api/login`, { email, password });
-      log(link);
-      log("${link}/api/login");
+      console.log(link);
+      console.log("${link}/api/login");
 
       // Assuming a token or success message is returned from the backend
       localStorage.setItem('token', response.data.token);
